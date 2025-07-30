@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TriviaTap - Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 60px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            background-color: violet;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .option-btn:hover {
+            background-color: #b266ff;
+        }
+
+        .timer {
+            font-size: 1.2em;
+            color: #ff3333;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="timer">⏱ Time Left: <span id="timer">10</span> seconds</div>
+        <h2 id="question">{{ question['question']|safe }}</h2>
+        <div class="options">
+            {% for option in options %}
+                <form action="/quiz" method="post">
+                    <input type="hidden" name="answer" value="{{ option }}">
+                    <input type="hidden" name="correct_answer" value="{{ question['correct_answer'] }}">
+                    <button type="submit" class="option-btn">{{ option }}</button>
+                </form>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        let timer = 10;
+        const timerElement = document.getElementById('timer');
+        const countdown = setInterval(() => {
+            timer--;
+            timerElement.textContent = timer;
+            if (timer <= 0) {
+                clearInterval(countdown);
+                document.forms[0].submit(); // auto submit first form
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

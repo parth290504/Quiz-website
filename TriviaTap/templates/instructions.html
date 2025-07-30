@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instructions - TriviaTap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            width: 33.33%;
+            background-color: violet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left-panel h1 {
+            color: white;
+            font-size: 3em;
+        }
+
+        .right-panel {
+            width: 66.66%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+        }
+
+        .right-panel h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .instructions {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: violet;
+            color: white;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        button:hover {
+            background-color: #b266ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>TriviaTap</h1>
+        </div>
+        <div class="right-panel">
+            <h2>Instructions</h2>
+            <div class="instructions">
+                <p>👤 Player: <strong>{{ username }}</strong></p>
+                <p>📂 Category: <strong>{{ category_name }}</strong></p>
+                <p>⏱ You will get <strong>10 seconds</strong> to answer each question.</p>
+                <p>✅ Each correct answer gives you <strong>1 point</strong>.</p>
+                <p>🚫 There is no negative marking.</p>
+                <p>🏁 Once the quiz ends, you'll see your score and the leaderboard.</p>
+            </div>
+            <form action="/start-quiz" method="get">
+                <button type="submit">Start Quiz</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

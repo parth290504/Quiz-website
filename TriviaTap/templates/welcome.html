@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Welcome to Quiz App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="top-section">
+        <h1 class="app-title">TriviaTap</h1>
+        <h5 class="app-subtitle">Your Ultimate Quiz spot!</h5>
+    </div>
+    <div class="bottom-section">
+        <h1 class="welcome-text">Welcome to the Ultimate Quiz Challenge!</h1>
+        <button class="continue-button" onclick="location.href='/username'">Continue</button>
+    </div>
+    <form action="/username" method="get">
+    <button type="submit">Continue</button>
+    </form>
+
+</body>
+</html>

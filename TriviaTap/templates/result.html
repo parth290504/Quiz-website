@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TriviaTap - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: violet;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: violet;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #b266ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+    <h1>Quiz Complete!</h1>
+    <p><strong>{{ session ['username'] }}</strong>, you scored <strong>{{ score }}</strong> out of <strong>{{ total }}</strong></p>
+
+    <h3>Answer Review</h3>
+<table border="1">
+    <tr>
+        <th>Question</th>
+        <th>Your Answer</th>
+        <th>Correct Answer</th>
+    </tr>
+    {% for item in review_data %}
+    <tr>    
+        <td>{{ item.question|safe }}</td>
+        <td>
+            {{ item.user_answer }}
+        </td>
+        <td>{{ item.correct_answer }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    
+        <a href="/leaderboard"><button class="option-btn">Show Leaderboard</button></a>
+    
+</div>
+
+</body>
+</html>

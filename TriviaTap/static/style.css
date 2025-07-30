@@ -1,0 +1,95 @@
+/* Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Top 1/3 Section */
+.top-section {
+    height: 33.33vh;
+    background-color: violet;
+}
+
+.app-title {
+    font-size: 90px;
+    color: dimgray;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-align:center ;
+    margin:0px;
+    
+}
+
+
+.app-subtitle {
+    font-size:20px;
+    color:black;
+    font-weight:600;
+    text-shadow:rgba(10, 20, 10, 0.3);
+    text-align:center;
+}
+
+/* Bottom 2/3 Section */
+.bottom-section {
+    height: 66.67vh;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+}
+
+/* Welcome Text */
+.welcome-text {
+    font-size: 50px;
+    margin-bottom: 40px;
+    margin-top: 1px;
+    text-align: top;
+}
+
+/* Continue Button */
+.continue-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #0091b5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}

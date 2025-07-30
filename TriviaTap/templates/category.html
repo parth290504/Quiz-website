@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Category - TriviaTap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            width: 33.33%;
+            background-color: violet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left-panel h1 {
+            color: white;
+            font-size: 3em;
+        }
+
+        .right-panel {
+            width: 66.66%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right-panel h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1em;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: violet;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b266ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>TriviaTap</h1>
+        </div>
+        <div class="right-panel">
+            <h2>Hello {{ username }}! Choose a category:</h2>
+            <form action="/instructions" method="post">
+                <select name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="9">General Knowledge</option>
+                    <option value="18">Science: Computers</option>
+                    <option value="23">History</option>
+                    <option value="21">Sports</option>
+                    <option value="22">Geography</option>
+                    <!-- Add more as needed -->
+                </select>
+                <br>
+                <button type="submit">Continue</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
